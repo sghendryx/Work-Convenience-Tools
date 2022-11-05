@@ -4,7 +4,7 @@ import os.path
 user_list = []
 human_files = []
 users_not_found = []
-file_path = '/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf'
+file_path = #Insert the path of any human file here, but change the user's name to {name}.
 
 # Reads a CSV list of either First and Last names or e-mails (it can detect which one it is-- it can also be a mixture of both), and adds them to the user_list variable in a first.last format:
 with open('names.csv') as csvfile:
