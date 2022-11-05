@@ -4,9 +4,8 @@ import os.path
 user_list = []
 human_files = []
 users_not_found = []
-file_path = #Insert the path of any human file here, but change the user's name to {name}.
 
-# Reads a CSV list of either First and Last names or e-mails (it can detect which one it is-- it can also be a mixture of both), 
+# Reads a CSV list of either First and Last names or e-mails (it can detect which one it is-- it can also be a mixture of both),
 # and adds them to the user_list variable in a first.last format:
 with open('names.csv') as csvfile:
     file = csv.reader(csvfile, delimiter=' ')
@@ -14,12 +13,6 @@ with open('names.csv') as csvfile:
         if any("@redcanary.com") == True:
             row = ('.'.join(row))
             row = row.replace("@redcanary.com", "")
-            row = row.replace(",", "")
-            row = row.replace(" ", "")
-            user_list.append(row)
-
-        else:
-            row = ('.'.join(row))
             row = row.replace(",", "")
             row = row.replace(" ", "")
             user_list.append(row)
@@ -33,7 +26,7 @@ for user in user_list:
 
 # Prints the current status of an employee: do they still work here?
 def print_user_status(name):
-    file = open(f'{file_path}')
+    file = open(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf')
 
     user_status_index = 3
     first_name_index = 8
@@ -41,11 +34,13 @@ def print_user_status(name):
 
     content = file.readlines()
 
-    print(content[first_name_index] + content[last_name_index] + content[user_status_index])
+    print(content[first_name_index] +
+          content[last_name_index] + 
+          content[user_status_index])
 
 # Prints all information about a User's role and their manager.
 def print_user_information(name):
-    file = open(f'{file_path}')
+    file = open(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf')
 
     first_name_index = 8
     last_name_index = 9
@@ -75,7 +70,7 @@ print("Type your answer and hit 'Enter'.")
 answer = input()
 if answer == "Role Information" or answer == "role information":
     for name in human_files:
-        if os.path.exists(f'{file_path}') == True:
+        if os.path.exists(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf') == True:
             print_user_information(name)
 
         else:
@@ -83,7 +78,7 @@ if answer == "Role Information" or answer == "role information":
 
 elif answer == "User Status" or answer == "user status":
     for name in human_files:
-        if os.path.exists(f'{file_path}') == True:
+        if os.path.exists(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf') == True:
             print_user_status(name)
 
         else:
