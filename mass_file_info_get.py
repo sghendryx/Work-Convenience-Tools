@@ -80,7 +80,6 @@ if answer == "Role Information" or answer == "role information":
 
         else:
             users_not_found.append(name)
-            print(users_not_found)
 
 elif answer == "User Status" or answer == "user status":
     for name in human_files:
