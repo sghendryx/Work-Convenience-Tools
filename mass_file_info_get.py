@@ -26,7 +26,7 @@ for user in user_list:
 
 # Prints the current status of an employee: do they still work here?
 def print_user_status(name):
-    file = open(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf')
+    file = open(f' #insert file path to your human file, but replace the human file name with {name} ')
 
     user_status_index = 3
     first_name_index = 8
@@ -40,7 +40,7 @@ def print_user_status(name):
 
 # Prints all information about a User's role and their manager.
 def print_user_information(name):
-    file = open(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf')
+    file = open(f' #insert file path to your human file, but replace the human file name with {name} ')
 
     first_name_index = 8
     last_name_index = 9
@@ -70,7 +70,7 @@ print("Type your answer and hit 'Enter'.")
 answer = input()
 if answer == "Role Information" or answer == "role information":
     for name in human_files:
-        if os.path.exists(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf') == True:
+        if os.path.exists(f' #insert file path to your human file, but replace the human file name with {name} ') == True:
             print_user_information(name)
 
         else:
@@ -78,7 +78,7 @@ if answer == "Role Information" or answer == "role information":
 
 elif answer == "User Status" or answer == "user status":
     for name in human_files:
-        if os.path.exists(f'/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf') == True:
+        if os.path.exists(f' #insert file path to your human file, but replace the human file name with {name} ') == True:
             print_user_status(name)
 
         else:
