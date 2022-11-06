@@ -25,12 +25,11 @@ users_not_found = []
 with open('names.csv') as csvfile:
     file = csv.reader(csvfile, delimiter=' ')
     for row in file:
-        if any("@redcanary.com") == True:
-            row = ('.'.join(row))
-            row = row.replace("@redcanary.com", "")
-            row = row.replace(",", "")
-            row = row.replace(" ", "")
-            user_list.append(row)
+        row = ('.'.join(row))
+        row = row.replace("@redcanary.com", "")
+        row = row.replace(",", "")
+        row = row.replace(" ", "")
+        user_list.append(row)
 
 # Lower-cases our list of name and assigns them to the human_files variable:
 for user in user_list:
