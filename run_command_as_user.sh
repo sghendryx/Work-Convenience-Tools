@@ -13,19 +13,17 @@ if [ -z "$currentUser" -o "$currentUser" = "loginwindow" ]; then
   exit 1
 fi
 
-
 # Get the current user's UID.
 uid=$(id -u "$currentUser")
 
-# Convenience function to run a command as the current user
-# usage:
-#   runAsUser command arguments...
+# Convenience function to run a command as the current user.
+#   runAsUser command arguments:
 runAsUser() {  
   if [ "$currentUser" != "loginwindow" ]; then
     launchctl asuser "$uid" sudo -u "$currentUser" "$@"
   else
     echo "no user logged in"
-    # uncomment the exit command
+    # NOTE: uncomment the exit command
     # to make the function exit with an error when no user is logged in
     # exit 1
   fi
