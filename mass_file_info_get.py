@@ -1,3 +1,18 @@
+# I was running into an issue at work where I needed to look up the role, or the user's status (active/inactive) on several users at once,
+# but there was no convenient way in which to do that. We store our users in a repo in something my company calls a human file. At the end
+# of the file path, it has a name in a first.last format. I'd have to go into each file by searching, copying the info I wanted, and keep track
+# of it in a separate spreadsheet. It was pretty tedious and time consuming.
+#
+# This code takes a list of Firstname Lastnames or emails in a CSV format, removes any unnecessary characters (white space, commas, @mycompanydomain.com)
+# in order to turn it into the first.last format, and then subsitutes that variable in the file path to know which file I want it to open.
+#
+# It opens the human file, reads the file line by line, prints the lines(information) that I need it to, and returns it in a human friendly format.
+# Any name it doesn't find a file for, it adds it to a separate list and prints it at the bottom for me to look at to see if there was a typo or
+# anything like that.
+#
+# The most common tasks I use this for would be setting up RBAC (needing to know the consistencies between roles/departments), or doing an audit.
+# The script asks you if you'd like their employee status or their role information, and returns the specified info for you. Pretty cool!
+
 import csv
 import os.path
 
