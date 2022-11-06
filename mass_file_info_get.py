@@ -31,7 +31,7 @@ with open('names.csv') as csvfile:
         row = row.replace(" ", "")
         user_list.append(row)
 
-# Lower-cases our list of name and assigns them to the human_files variable:
+# Lower-cases our list of names and assigns them to the human_files variable:
 for user in user_list:
     lowercase = user.lower()
     human_files.append(lowercase)
