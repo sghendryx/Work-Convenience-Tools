@@ -1,4 +1,4 @@
-# I was running into an issue at work where I needed to look up the role, or the user's status (active/inactive) on several users at once,
+# I was running into an issue at work where I needed to look up the role, or the user's employee status (active/inactive) on several users at once,
 # but there was no convenient way in which to do that. We store our users in a repo in something my company calls a human file. At the end
 # of the file path, it has a name in a first.last format. I'd have to go into each file by searching, copying the info I wanted, and keep track
 # of it in a separate spreadsheet. It was pretty tedious and time consuming.
