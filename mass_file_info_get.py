@@ -14,7 +14,7 @@
 # The script asks you if you'd like their employee status or their role information, and returns the specified info for you. Pretty cool!
 
 import csv
-import os.path
+import os
 
 user_list = []
 human_files = []
@@ -31,7 +31,7 @@ with open('names.csv') as csvfile:
         row = row.replace(" ", "")
         user_list.append(row)
 
-# Lower-cases our list of names and assigns them to the human_files variable:
+# Lower-cases our list of name and assigns them to the human_files variable:
 for user in user_list:
     lowercase = user.lower()
     human_files.append(lowercase)
@@ -40,7 +40,7 @@ for user in user_list:
 
 # Prints the current status of an employee: do they still work here?
 def print_user_status(name):
-    file = open(f' #insert file path to your human file, but replace the human file name with {name} ')
+    file = open(os.path.expanduser('~') + (f"/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf"))
 
     user_status_index = 3
     first_name_index = 8
@@ -49,18 +49,20 @@ def print_user_status(name):
     content = file.readlines()
 
     print(content[first_name_index] +
-          content[last_name_index] + 
+          content[last_name_index] +
           content[user_status_index])
+
+
 
 # Prints all information about a User's role and their manager.
 def print_user_information(name):
-    file = open(f' #insert file path to your human file, but replace the human file name with {name} ')
+    file = open(os.path.expanduser('~') + (f"/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf"))
 
     first_name_index = 8
     last_name_index = 9
-    division_index = 21
-    department_index = 22
-    cost_center_index = 23
+    division_index = 20
+    department_index = 21
+    cost_center_index = 22
     title_index = 24
     user_manager_index = 26
 
@@ -79,12 +81,13 @@ def print_user_information(name):
 # looking for, it takes that name and adds it to a "user's not found" list, and prints that list in the end for us to
 # review.
 
+print("")
 print("Hello! What information would you like? Role Information or User Status?")
 print("Type your answer and hit 'Enter'.")
 answer = input()
 if answer == "Role Information" or answer == "role information":
     for name in human_files:
-        if os.path.exists(f' #insert file path to your human file, but replace the human file name with {name} ') == True:
+        if os.path.exists(os.path.expanduser('~') + (f"/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf")) == True:
             print_user_information(name)
 
         else:
@@ -92,7 +95,7 @@ if answer == "Role Information" or answer == "role information":
 
 elif answer == "User Status" or answer == "user status":
     for name in human_files:
-        if os.path.exists(f' #insert file path to your human file, but replace the human file name with {name} ') == True:
+        if os.path.exists(os.path.expanduser('~') + (f"/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf")) == True:
             print_user_status(name)
 
         else:
