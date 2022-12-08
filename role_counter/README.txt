@@ -1,15 +1,3 @@
-This script opens the human files in your locally cloned identity repo from a list of
-names/emails in a CSV (names.txt).
+This is an iteration on the mass_user_get script. It now takes a list of emails, finds the roles of those users, counts them, and then exports the counted roles to a CSV for the user to use. 
 
-In order to get it to work on your machine, you need to replace this file
-path every time it occurs:
-
-/Users/solveighendryx/GitHub/infrastructure-it-terraform-okta-identity/users_and_groups/humans/{name}.tf
-
-With a file path to your locally stored human file, but replace the name with {name}.
-The {name} bit will be replaced by the names generated from your CSV.
-
-Once you've made that edit, you run:
-python3 mass_user_info_get.py
-
-and follow the instructions!
+I am also going to edit it where you can just give the script a file path, and it will generate this CSV for you!
